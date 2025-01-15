@@ -1,6 +1,7 @@
 # Leetcode-Tracking
+### Love Coding as same as Workout 🏋️‍♀️
 
-This repo reminds me to practice Leetcode ~1 question daily. 
+This repo reminds me to practice Leetcode ~1 question daily in Python3.
 
 ### Goal: 200-300 questions
 ### Time: 200 days (August 1, 2025)
