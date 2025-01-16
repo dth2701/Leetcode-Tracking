@@ -36,17 +36,3 @@ This repo reminds me to practice Leetcode questions in Python3.
 
 ### Topic:
 <img width="746" alt="image" src="https://github.com/user-attachments/assets/df2ef978-f528-4d14-b52f-072860af9bf5" />
-
-1. Arrays & Strings: 50-60 
-2. Linked Lists: 20-30 
-3. Stacks & Queues: 15-20 
-4. Hash Maps & Sets: 30-40 
-5. Binary Search Trees: 30-40 
-6. Graphs: 20 
-7. Dynamic Programming: 20-30 
-8. Backtracking: 10-15 
-9. Sorting & Searching: 20-30 
-10. Maps & Bit Manipulation: 10 
-
-
-
