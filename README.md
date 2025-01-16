@@ -10,30 +10,15 @@ This repo reminds me to practice Leetcode questions in Python3.
   
 ### Weekly Schedule:
 
-##### Monday
+##### Monday: 2 Easy/Medium 
 
-- 2 Easy/Medium questions
-- Focus on building confidence with fundamentals
+##### Tuesday: 2 Easy/Medium 
 
-##### Tuesday
+##### Wednesday: 2 Medium
 
-- 2 Easy/Medium questions
-- Continue strengthening problem-solving basics
+##### Thursday: Medium/Hard 
 
-##### Wednesday
-
-- 2 Medium questions
-- Push difficulty level to grow problem-solving skills
-
-##### Thursday
-
-- 1 Medium/Hard question
-- Deep dive into more complex problems
-
-##### Friday
-
-- 1 Hard question
-- Challenge day to test your limits
+##### Friday: 1 Hard 
 
 ##### Saturday (Revision Day)
 
