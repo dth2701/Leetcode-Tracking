@@ -9,26 +9,45 @@ This repo reminds me to practice Leetcode questions in Python3.
 ### Weekly Target: 11 points + 1 revision day
   
 ### Weekly Schedule:
-Monday: 2 Easy/Medium questions
 
-Tuesday: 2 Easy/Medium questions
+##### Monday
 
-Wednesday: 2 Medium questions
+- 2 Easy/Medium questions
+- Focus on building confidence with fundamentals
 
-Thursday: 1 Medium/Hard question
+##### Tuesday
 
-Friday: 1 Hard question
+- 2 Easy/Medium questions
+- Continue strengthening problem-solving basics
 
-Saturday: Revision Day
+##### Wednesday
+
+- 2 Medium questions
+- Push difficulty level to grow problem-solving skills
+
+##### Thursday
+
+- 1 Medium/Hard question
+- Deep dive into more complex problems
+
+##### Friday
+
+- 1 Hard question
+- Challenge day to test your limits
+
+##### Saturday (Revision Day)
 
 - Review 2-3 problems you struggled with
 - Rewrite solutions from scratch
 - Focus on optimizing previous solutions
-- 
-Sunday: Rest + Concept Review
+- Document learnings and patterns
+
+##### Sunday (Rest + Review)
+
 - Review theoretical concepts
 - Watch related videos/tutorials
 - Plan next week's problems
+- Rest and recharge
 
 ### Topic:
 <img width="746" alt="image" src="https://github.com/user-attachments/assets/df2ef978-f528-4d14-b52f-072860af9bf5" />
