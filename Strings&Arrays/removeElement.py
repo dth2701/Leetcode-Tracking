@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
         # Removing val in nums
@@ -10,8 +11,16 @@ class Solution:
 
         return len(nums)
 
+def main():
+    solution = Solution()
+    test_nums = [0,1,2,2,3,0,4,2]
+    test_val = 2
+    print(test_nums)
+    result = solution.removeElement(test_nums, test_val)
+    print(result)
 
-
+if __name__ == "__main__":
+    main()
         # IN PLACEEEEEE
         # [0,1,2,2,3,0,4,2]
         # val = 2
@@ -27,11 +36,11 @@ class Solution:
         # Better Method 
         # Time complexity: O(n) because for each val we find
         # Space Complexity: O(1)
-        count = 0
-        for i in range(len(nums)):
-            if nums[i] != val:
-                # Found, put it as position k and move k Forward
-                nums[count] = nums[i]
-                count+=1 
-        return count
+        # count = 0
+        # for i in range(len(nums)):
+        #     if nums[i] != val:
+        #         # Found, put it as position k and move k Forward
+        #         nums[count] = nums[i]
+        #         count+=1 
+        # return count
     
