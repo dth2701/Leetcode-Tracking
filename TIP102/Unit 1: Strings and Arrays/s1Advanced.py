@@ -142,9 +142,9 @@ def non_decreasing(nums):
 # nums = [4, 2, 1]
 # print(non_decreasing(nums)) #Expect False
 	
+
 # Problem 5: Missing Clues
 # Return the shortest sorted list of ranges that exactly covers all the missing numbers. 
-
 def find_missing_clues(clues, lower, upper):
 	sorted_clues = sorted(clues)
 	result = []
@@ -171,3 +171,79 @@ def find_missing_clues(clues, lower, upper):
 # lower = -1
 # upper = -1
 # print(find_missing_clues(clues, lower, upper))
+
+# Problem 6: Vegetable Harvest
+def harvest(vegetable_patch):
+	count = 0
+	for i in range(len(vegetable_patch)):
+		for j in range(len(vegetable_patch[i])):
+			if vegetable_patch[i][j] == 'c':
+				count += 1
+	return count
+
+# vegetable_patch = [
+# 	['x', 'c', 'x'],
+# 	['x', 'x', 'x'],
+# 	['x', 'c', 'c'],
+# 	['c', 'c', 'c']
+# ]
+# print(harvest(vegetable_patch))
+
+# The function should return the number of good pairs.
+# A pair (i, j) is called good if pile1[i] is divisible by pile2[j] * k. 
+# Problem 7: Eeyore's House
+
+def good_pairs(pile1, pile2, k):
+	count = 0
+	for i in range(len(pile1) - 1):
+		for j in range(len(pile2) - 1):
+			if pile2[j] * k % pile1[i] == 0:
+				count += 1
+	print(count)
+
+# pile1 = [1, 3, 4]
+# pile2 = [1, 3, 4]
+# k = 1
+# good_pairs(pile1, pile2, k)
+
+pile1 = [1, 2, 4, 12]
+pile2 = [2, 4]
+k = 3
+good_pairs(pile1, pile2, k)
+
+
+# Problem 8: Local Maximums
+# accepts an n x n integer matrix grid  
+# returns an integer matrix local_maxes of size (n - 2) x (n - 2) such that:
+# local_maxes[i][j] is equal to the largest value of the 3 x 3 matrix in grid centered around row i + 1 and column j + 1.
+# find the largest value in every contiguous 3 x 3 matrix in grid. ===> max
+
+# n = 4 => 1th, 2nd
+# n = 5 => 2,3,4 => Index: 1th, 2nd, 3rd 
+# n= 6 => 2,3,4,5
+def local_maximums(grid):
+	n = len(grid)
+	
+	# size (n - 2) x (n - 2
+	local_maxes = [[0 for j in range (n - 2)] for i in range(n - 2)]
+
+	# Loop through each 3x3 matrix 
+	for i in range(n - 2):
+		for j in range(n - 2):
+			max_number = -1
+            # Check all 9 positions in the 3x3 region
+			for x in range(i, i+3):
+				for y in range(j, j+3):
+					if grid[x][y] > max_number:
+						max_number = grid[x][y]
+						local_maxes[i][j] = max_number
+	return local_maxes
+			
+
+grid = [
+	[9, 9, 8, 1],
+	[5, 6, 2, 6],
+	[8, 2, 6, 4],
+	[6, 2, 2, 2]
+]
+print(local_maximums(grid))
