@@ -1,116 +1,111 @@
-# returns the total number of treasures buried on the island.
-def total_treasures(treasure_map):
-    total = 0
-    for treasure in treasure_map:
-        total += treasure_map[treasure]
-    return total
+# returns the length of the longest balanced subsequence.
+# A balanced collection = the difference between the max and min value of the art pieces = 1.
+# No changing the order of the remaining elements.
 
-# treasure_map1 = {
-#     "Cove": 3,
-#     "Beach": 7,
-#     "Forest": 5
-# }
+def find_balanced_subsequence(art_pieces):
+    # Base case: If all values are the same, there's no balanced subsequence
 
-# treasure_map2 = {
-#     "Shipwreck": 10,
-#     "Cave": 20,
-#     "Lagoon": 15,
-#     "Island Peak": 5
-# }
-
-# print(total_treasures(treasure_map1)) 
-# print(total_treasures(treasure_map2)) 
-
-# Problem 2: Pirate Message Check
-# returns True if the message contains EVERY letter of the English alphabet at least once, and False otherwise.
-def can_trust_message(message):
-    # Remove all whitespace and convert to lowercase
-    message = message.lower().replace(" ", "")
+    if len(set(art_pieces)) == 1:
+        return 0
+    # {1, 2, 3, 5, 7}
+    count = {}
+    for piece in art_pieces:
+        count[piece] = 1 + count.get(piece, 0)
     
-    # Create a set of all letters in the alphabet
-    for char in "abcdefghijklmnopqrstuvwxyz":
-        if char not in message:
+    # Check each potential pair
+    max_length = 0
+    for value in count:
+        if value + 1 in count:
+            max_length = max(max_length, count[value] + count[value + 1])
+    return max_length
+
+
+# art_pieces1 = [1,3,2,2,5,2,3,7]
+# art_pieces2 = [1,2,3,4]
+# art_pieces3 = [1,1,1,1]
+
+# print(find_balanced_subsequence(art_pieces1))
+# print(find_balanced_subsequence(art_pieces2))
+# print(find_balanced_subsequence(art_pieces3))
+
+# Problem 2: Verifying Authenticity
+# returns True if the given array is an authentic array, and otherwise returns False.
+# base[n] = [1, 2, ..., n - 1, n, n]
+# "authentic" if the list is a permutation of an array base[n].
+# Note: A permutation of integers represents an arrangement of these numbers. 
+
+def is_authentic_collection(art_pieces):
+
+    n = len(art_pieces)
+    if n == 0: return False
+
+    # Find the highest number in the collection
+    max_num = max(art_pieces)  
+    if max_num + 1 != n: return False
+
+    counter = {}
+
+    for num in art_pieces:
+        counter[num] = 1 + counter.get(num , 0)
+
+        
+    # Check values 1 to n-1 occur exactly once
+    for i in range(1, max_num):
+        if counter.get(i, 0) != 1:
             return False
-    # using len() > 26
-    return True
-
-# message1 = "sphinx of black quartz judge my vow"
-# message2 = "trust me"
-
-# print(can_trust_message(message1))
-# print(can_trust_message(message2))
-
-# Return an array of all the integers that appear twice, representing the treasure chests that have duplicates.
-# Problem 3: Find All Duplicate Treasure Chests in an Array
-def find_duplicate_chests(chests):
-    counter = {}
-    result = []
-    for chest in chests:
-        counter[chest] = 1 + counter.get(chest, 0)
-        if counter[chest] == 2:
-            result.append(chest)
-    return result 
-
-# chests1 = [4, 3, 2, 7, 8, 2, 3, 1]
-# chests2 = [1, 1, 2]
-# chests3 = [1]
-
-# print(find_duplicate_chests(chests1))
-# print(find_duplicate_chests(chests2))
-# print(find_duplicate_chests(chests3))
-
-# Problem 4: Booby Trap
-#  returns True if it's possible to remove one letter so that the frequency of all remaining letters is equal, and False otherwise.
-
-def is_balanced(code):
-    counter = {}
-
-    for letter in code:
-        counter[letter] = 1 + counter.get(letter, 0)
-
-    frequencies = list(counter.values())
-    print(frequencies)
-    count = 0
-
-    first_frequency = frequencies[0]
-    for freq in frequencies:
-        if freq != first_frequency:
-            count += 1
-    if count < 1:
+        
+    # Check that value n occurs exactly twice
+    if counter.get(max_num, 0) != 2:
         return False
     
-    # Return True if there's at most 1 different frequency
     return True
 
-code1 = "arghh"
-code2 = "haha"
-
-print(is_balanced(code1)) 
-print(is_balanced(code2)) 
-
-# Hello TwoSum
-def find_treasure_indices(gold_amounts, target):
-    seen = {} #  [num: index] 
-    for i, num in enumerate(gold_amounts):
-        diff = target - num
-        if diff in seen:
-            return [i, seen[diff]]
-        # store the current number and its index to mark it seen
-        seen[num] = i 
-    return []
-        
+    # n = len(art_pieces)
+    # sorted_art_piece = sorted(art_pieces)
+    # authentic_arr = list(range(1, n))
+    # authentic_arr.append(n-1)
+    # return sorted_art_piece == authentic_arr
 
 
 
-gold_amounts1 = [2, 7, 11, 15]
-target1 = 9
+collection1 = [2, 1, 3]
+collection2 = [1, 3, 3, 2]
+collection3 = [1, 1]
 
-gold_amounts2 = [3, 2, 4]
-target2 = 6
+print(is_authentic_collection(collection1)) #False
+print(is_authentic_collection(collection2)) #True
+print(is_authentic_collection(collection3)) #True
 
-gold_amounts3 = [3, 3]
-target3 = 6
+# Problem 3: Gallery Wall
 
-print(find_treasure_indices(gold_amounts1, target1))  
-print(find_treasure_indices(gold_amounts2, target2))  
-print(find_treasure_indices(gold_amounts3, target3)) 
+# 1.The 2D array should contain only the elements of the array collection.
+# 2. Each row in the 2D array should contain distinct strings. using set()
+# 3. The number of rows in the 2D array should be minimal. using % 2 == 0
+# Return the resulting array. If there are multiple answers, return any of them. 
+# Note that the 2D array can have a different number of elements on each row. 
+
+# U
+# 
+# def organize_exhibition(collection):
+#     # new_collection = set(collection)
+#     counter = {}
+#     for str in collection:
+#         counter[str] = 1 + counter.get(str, 0)
+    
+#     result = []
+#     for str, count in counter.items(): 
+#         if str
+
+
+#         # if str not in result:
+#         #     result[str] = []
+
+
+
+
+#     return counter
+
+# collection1 = ["O'Keefe", "Kahlo", "Picasso", "O'Keefe", "Warhol", 
+#               "Kahlo", "O'Keefe"]
+
+# print(organize_exhibition(collection1))
